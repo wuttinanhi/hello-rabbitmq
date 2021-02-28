@@ -1,0 +1,16 @@
+{
+  "name": "hello-rabbitmq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pub": "node pub.js",
+    "sub": "node sub.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.7.0"
+  }
+}

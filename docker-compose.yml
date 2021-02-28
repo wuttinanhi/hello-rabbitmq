@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    expose:
+      - 5672
+    networks:
+      - dev
+
+  hellorabbitmq:
+    image: hellorabbitmq
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - rabbitmq
+    environment:
+      WAIT: 15000
+      AMQP: amqp://rabbitmq:5672
+    networks:
+      - dev
+
+networks:
+  dev:
